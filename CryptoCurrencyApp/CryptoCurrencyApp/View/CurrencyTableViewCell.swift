@@ -48,7 +48,7 @@ final class CurrencyTableViewCell: UITableViewCell {
         currencyValue.heightAnchor.constraint(equalToConstant: 30).isActive = true
         currencyValue.leadingAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
-    
+    // MARK: - API
     func setUpCell(_ model: CurrencyClientModel) {
         currencyName.text = model.name
         if let currencyValueUsd = model.priceUsd {
