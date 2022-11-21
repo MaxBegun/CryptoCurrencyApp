@@ -1,8 +1,6 @@
 import UIKit
 
 final class CurrencyViewController: UIViewController {
-    // MARK: - Properties
-    // MARK: Public
     // MARK: Private
     private let mainTableView = UITableView()
     private var activityIndicator = UIActivityIndicatorView(style: .large)
@@ -17,7 +15,7 @@ final class CurrencyViewController: UIViewController {
         super.viewDidAppear(animated)
         APIManager.instance.getAllAssets { data in
             self.currencyArray = data
-    }
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,12 +82,8 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyTableViewCell", for: indexPath) as? CurrencyTableViewCell {
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
-            cell.currencyName.text = currencyArray[indexPath.section].name
-            if let currencyValue = currencyArray[indexPath.section].priceUsd {
-                cell.currencyValue.text = "$\(String(format: "%.3f", currencyValue))"
-            } else { cell.currencyValue.text = "No data" }
+
+            cell.setUpCell(currencyArray[indexPath.section])
             
             return cell
         }

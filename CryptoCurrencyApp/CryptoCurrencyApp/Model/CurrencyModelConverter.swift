@@ -14,7 +14,7 @@ struct CurrencyModelConverter {
         let dataStart = dateFormatter.date(from: serverModel.data_start ?? "")
         let dataTradeEnd = dateFormatter.date(from: serverModel.data_trade_end ?? "")
         let dataTradeStart = dateFormatter.date(from: serverModel.data_trade_start ?? "")
-        let typeIsCrypto = serverModel.type_is_crypto == 1 ? true:false
+        let typeIsCrypto = serverModel.type_is_crypto == 1 ? true : false
 
         let clientModel = CurrencyClientModel(assetId: serverModel.asset_id,
                                               dataEnd: dataEnd,
